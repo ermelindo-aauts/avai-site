@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AVAI · Apoio à Imigração</title>
+<meta name="description" content="Assistente virtual de apoio à imigração em Portugal: perguntas, documentos, notícias e comunidade.">
+<meta name="theme-color" content="#010433">
+<meta name="application-name" content="AVAI">
+<meta name="apple-mobile-web-app-title" content="AVAI">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AVAI · Apoio à Imigração">
+<meta property="og:description" content="Assistente virtual de apoio à imigração em Portugal.">
+<meta property="og:url" content="https://avai.aauts.pt/">
+<meta property="og:image" content="https://avai.aauts.pt/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+  // Aberto a partir do atalho do ecrã principal: segue logo para a app.
+  (function () {
+    var APP = "https://avai-c32.streamlit.app/";
+    var q = new URLSearchParams(location.search);
+    var standalone = window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+    if (q.get("app") === "1" || standalone) { location.replace(APP); }
+  })();
+</script>
+<style>
+  :root {
+    --bg: #010433; --bg2: #06104f; --card: rgba(255,255,255,.06); --line: rgba(255,255,255,.12);
+    --text: #ffffff; --muted: #b9c2e6; --blue: #0394ff; --gold: #e2b56b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh; min-height: 100dvh; color: var(--text); background: var(--bg);
+    background-image: radial-gradient(60rem 30rem at 50% -10%, rgba(3,148,255,.28), transparent 70%),
+                      radial-gradient(40rem 25rem at 100% 110%, rgba(226,181,107,.14), transparent 70%);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    padding: max(2rem, env(safe-area-inset-top)) 1rem max(1.5rem, env(safe-area-inset-bottom));
+  }
+  main { width: 100%; max-width: 34rem; flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .logo { width: 7.5rem; height: 7.5rem; margin: 1.5rem 0 1.25rem; filter: drop-shadow(0 10px 30px rgba(3,148,255,.35)); }
+  h1 { font-size: 2.6rem; letter-spacing: .08em; margin: 0; font-weight: 800; }
+  .tag { margin: .25rem 0 0; color: var(--gold); font-weight: 600; letter-spacing: .04em; }
+  .lead { color: var(--muted); margin: 1.1rem 0 1.8rem; max-width: 28rem; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+    width: 100%; max-width: 20rem; padding: 1rem 1.4rem; border-radius: 999px;
+    background: var(--blue); color: #fff; font-weight: 700; font-size: 1.1rem; text-decoration: none;
+    box-shadow: 0 10px 30px rgba(3,148,255,.35); transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 36px rgba(3,148,255,.45); }
+  .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .btn svg { width: 1.2rem; height: 1.2rem; }
+  .note { color: var(--muted); font-size: .85rem; margin: .8rem 0 0; }
+  .features { list-style: none; padding: 0; margin: 2.2rem 0 0; width: 100%;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; text-align: left; }
+  .features li { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: .8rem .9rem; font-size: .92rem; }
+  .features b { display: block; font-size: .98rem; margin-bottom: .1rem; }
+  .features span { color: var(--muted); }
+  .install { margin-top: 1.6rem; width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 14px; text-align: left; }
+  .install summary { cursor: pointer; padding: .9rem 1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: .55rem; }
+  .install summary::-webkit-details-marker { display: none; }
+  .install summary::after { content: "+"; margin-left: auto; color: var(--gold); font-size: 1.2rem; }
+  .install[open] summary::after { content: "–"; }
+  .install .body { padding: 0 1rem 1rem; color: var(--muted); font-size: .92rem; }
+  .install ol { margin: .3rem 0 .8rem; padding-left: 1.2rem; }
+  .install h3 { color: var(--text); font-size: .95rem; margin: .6rem 0 .2rem; }
+  footer { margin-top: 2.5rem; color: var(--muted); font-size: .8rem; text-align: center; }
+  footer a { color: var(--muted); }
+  @media (max-width: 420px) {
+    h1 { font-size: 2.2rem; }
+    .features { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="logo.png" alt="" width="120" height="120">
+  <h1>AVAI</h1>
+  <p class="tag">Apoio à Imigração</p>
+  <p class="lead">Assistente virtual para quem vive ou quer viver em Portugal: tire dúvidas, analise documentos, acompanhe notícias e fale com a comunidade.</p>
+
+  <a class="btn" href="https://avai-c32.streamlit.app/" rel="noopener">
+    Entrar no AVAI
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <p class="note">Se a app estiver em pausa, pode demorar alguns segundos a acordar.</p>
+
+  <ul class="features">
+    <li><b>Assistente AVAI</b><span>Perguntas sobre vistos, autorizações e serviços.</span></li>
+    <li><b>Documentos</b><span>Carregue um PDF e peça uma explicação.</span></li>
+    <li><b>Notícias</b><span>Atualidade sobre imigração em Portugal.</span></li>
+    <li><b>Comunidade</b><span>Partilhas, chat pessoal e de grupo.</span></li>
+  </ul>
+
+  <details class="install" id="install">
+    <summary>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+      Pôr o AVAI no ecrã principal do telemóvel
+    </summary>
+    <div class="body">
+      <h3>Android (Chrome)</h3>
+      <ol><li>Abra este endereço: <b>avai.aauts.pt</b></li><li>Toque no menu <b>⋮</b> e escolha <b>Adicionar ao ecrã principal</b>.</li></ol>
+      <h3>iPhone (Safari)</h3>
+      <ol><li>Abra este endereço no Safari: <b>avai.aauts.pt</b></li><li>Toque em <b>Partilhar</b> e escolha <b>Adicionar ao ecrã principal</b>.</li></ol>
+      O atalho fica com o ícone do AVAI e abre diretamente a aplicação.
+    </div>
+  </details>
+</main>
+<footer>
+  © <span id="y">2026</span> AVAI · uma iniciativa <a href="https://aauts.pt/">AAUTS</a>
+</footer>
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+  // No iPhone o atalho guarda o endereço atual: com ?app=1 abre logo a app.
+  if (/iPhone|iPad|iPod/.test(navigator.userAgent) && !location.search) {
+    history.replaceState(null, "", "?app=1");
+  }
+</script>
+</body>
+</html>

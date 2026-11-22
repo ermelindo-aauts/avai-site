@@ -1,0 +1,16 @@
+{
+  "name": "AVAI · Apoio à Imigração",
+  "short_name": "AVAI",
+  "description": "Assistente virtual de apoio à imigração em Portugal.",
+  "lang": "pt-PT",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#010433",
+  "theme_color": "#010433",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
